@@ -1,0 +1,54 @@
+<div class="container">
+  <%= form_with(model: hoja_paciente) do |form| %>
+    <% if hoja_paciente.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(hoja_paciente.errors.count, "error") %> prohibited this hoja_paciente from being saved:</h2>
+        <ul>
+          <% hoja_paciente.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <br>
+      <h1>Historia clinica paciente</h1>
+      <br>
+      <h2><%= form.label :numero_identificacion_paciente, 'Paciente' %></h2>
+      <%= form.hidden_field :numero_identificacion_paciente %>
+    </div>
+
+    <div class="mb-3">
+      <i class="fa-solid fa-calendar-days"></i>
+      <%= form.label :fecha, class: 'form-label' %>
+      <%= form.date_field :fecha, class: 'form-control' %>
+    </div>
+
+    <div class="mb-3">
+    <i class="fa-solid fa-notes-medical"></i>
+    <%= form.label :cif, class: 'form-label' %>
+    <%= form.text_area :cif, class: 'form-control', rows: 5, placeholder: 'Ingrese el texto aquí...' %>
+    </div>
+
+    <div class="mb-3">
+      <i class="fa-solid fa-check"></i>
+      <%= form.label :objetivos_terapeuticos, class: 'form-label' %>
+      <%= form.text_area :objetivos_terapeuticos, class: 'form-control',rows: 5,placeholder: '1) Mejorar ...' %>
+    </div>
+
+    <div class="mb-3">
+      <i class="fa-solid fa-clock"></i>
+      <%= form.label :duracion_plan_trabajo, class: 'form-label' %>
+      <%= form.number_field :duracion_plan_trabajo, class: 'form-control',placeholder: '1) 120 días' %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.submit 'Guardar', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+
+  <div>
+    <%= link_to "Regresar a lista de pacientes", pacientes_path %>
+  </div>
+</div>

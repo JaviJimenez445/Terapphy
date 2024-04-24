@@ -1,0 +1,10 @@
+<h1>Crear Hoja de Paciente</h1>
+<%= form_with(model: @hoja_paciente, url: hoja_pacientes_path) do |form| %>
+  <!-- Agregar campos de formulario según tus necesidades -->
+  <%= form.collection_select :numero_identificacion_paciente, @pacientes, :numero_identificacion, :nombres %>
+  <%= form.date_field :fecha %>
+  <%= form.text_field :cif %>
+  <%= form.text_area :objetivos_terapeuticos %>
+  <%= form.number_field :duracion_plan_trabajo %>
+  <%= form.submit "Crear Hoja de Paciente" %>
+<% end %>

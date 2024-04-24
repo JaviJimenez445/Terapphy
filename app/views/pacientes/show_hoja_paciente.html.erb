@@ -1,0 +1,10 @@
+<h1>Mi Hoja de Paciente</h1>
+<% if @hoja_paciente %>
+  <p>Nombres y apellidos del paciente: <%= @hoja_paciente.paciente.nombres %> <%= @hoja_paciente.paciente.apellidos %></p>
+  <!-- Agregar otros campos según tus necesidades -->
+  <p>Objetivos Terapéuticos: <%= @hoja_paciente.objetivos_terapeuticos %></p>
+  <p>Duración del Plan de TrabajO: <%= @hoja_paciente.duracion_plan_trabajo %> días</p>
+  <!-- Agregar visualización de ExploracionFisica y Video -->
+<% else %>
+  <p>No hay Hoja de Paciente disponible.</p>
+<% end %>

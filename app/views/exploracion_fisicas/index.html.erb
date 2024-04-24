@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Exploracion fisicas</h1>
+
+<div id="exploracion_fisicas">
+  <% @exploracion_fisicas.each do |exploracion_fisica| %>
+    <%= render exploracion_fisica %>
+    <p>
+      <%= link_to "Show this exploracion fisica", exploracion_fisica %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New exploracion fisica", new_exploracion_fisica_path %>

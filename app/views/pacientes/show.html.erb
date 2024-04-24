@@ -1,0 +1,12 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @paciente %>
+
+<div class="container">
+  <%= link_to "Modificar Paciente", edit_paciente_path(@paciente) %> |
+  <%= link_to "Regresar a lista de pacientes", pacientes_path %>
+
+  <%= button_to @paciente, method: :delete, data: { confirm: "¿Estás seguro?" }, class: "btn btn-danger" do %>
+    <i class="fas fa-trash"></i> Borrar paciente
+  <% end %>
+</div>

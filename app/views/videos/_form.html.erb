@@ -1,0 +1,27 @@
+<%= form_with(model: video) do |form| %>
+  <% if video.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(video.errors.count, "error") %> prohibited this video from being saved:</h2>
+
+      <ul>
+        <% video.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="container">
+
+  <div>
+  <%= form.hidden_field :hoja_paciente_id, value: @video.hoja_paciente_id %>
+  </div>
+
+  <div>
+    <%= form.label :nombre_video,"URL del video a publicar", style: "display: block" %>
+    <%= form.text_field :nombre_video %>
+  </div>
+  <br>
+  <div>
+    <%= form.submit "Agregar Video", class: "btn btn-primary"%>
+  </div>
+<% end %>

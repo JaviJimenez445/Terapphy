@@ -1,0 +1,61 @@
+<br><br><div class="container">
+<p style="color: green"><%= notice %></p>
+
+<h1>Pacientes <i class="fa-solid fa-users"></i></h1> 
+<br>
+<div id="pacientes">
+  <table class="table">
+  <thead  class="table-dark">
+    <tr class="text-center">
+      <th scope="col"></th>
+      <th scope="col" class="col-3">Número de Identificación</th>
+      <th scope="col" class="col-3">Nombres</th>
+      <th scope="col" class="col-3">Agregar historia al paciente</th>
+      <th scope="col" >Ver más</th>
+      <th scope="col">Editar</th>
+      <th scope="col">Borrar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @pacientes.each do |paciente| %>
+      <tr class="text-center">
+      <td class="col-1">
+        <i class="fa-solid fa-user"></i>
+      </td>
+        <td class="col-3"><%= paciente.numero_identificacion %></td>
+        <td class="col-3"><%= "#{paciente.nombres} #{paciente.apellidos}" %></td>
+        <td class="col-1">
+          <%= link_to new_hoja_paciente_path(paciente_id: paciente.id),class: 'btn btn-primary' do %>
+          <i class="fa-sharp fa-solid fa-notes-medical"></i> 
+        <% end %>
+      </td>
+      <td class="col-1">
+        <%= link_to paciente, class: 'btn btn-primary' do %>
+          <i class='fas fa-eye'></i>
+        <% end %>
+      </td>
+   
+      <td class="col-1">
+      <%= link_to edit_paciente_path(paciente),class: 'btn btn-primary' do %>
+        <i class="fas fa-edit"></i>
+      <% end %>
+      </td>
+      <td class="col-1">
+      <%= button_to paciente_path(paciente), method: :delete, data: { confirm: '¿Estás seguro?' },class: 'btn btn-primary' do %>
+        <i class="fas fa-trash"></i>
+      <% end %>      
+      </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+<div class="text-center">
+  <%= link_to new_paciente_path, class: "btn btn-primary" do %>
+    <i class="fas fa-user-plus"></i> Crear Paciente
+  <% end %>
+</div>
+</div>
+
+<%= link_to 'Sign out', destroy_therapist_session_path, method: :delete %>

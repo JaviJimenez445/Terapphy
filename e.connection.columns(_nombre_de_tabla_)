@@ -1,0 +1,9 @@
+=> 
+[[31m[1m"[0m[31mschema_migrations[0m[31m[1m"[0m,
+ [31m[1m"[0m[31mar_internal_metadata[0m[31m[1m"[0m,
+ [31m[1m"[0m[31mpacientes[0m[31m[1m"[0m,
+ [31m[1m"[0m[31mexploracion_fisicas[0m[31m[1m"[0m,
+ [31m[1m"[0m[31mvideos[0m[31m[1m"[0m,
+ [31m[1m"[0m[31mhoja_pacientes[0m[31m[1m"[0m,
+ [31m[1m"[0m[31mtherapist[0m[31m[1m"[0m,
+ [31m[1m"[0m[31mtherapists[0m[31m[1m"[0m]

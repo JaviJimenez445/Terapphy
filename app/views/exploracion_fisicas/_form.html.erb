@@ -1,0 +1,188 @@
+<%= form_with(model: exploracion_fisica) do |form| %>
+  <% if exploracion_fisica.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(exploracion_fisica.errors.count, "error") %> prohibited this exploracion_fisica from being saved:</h2>
+
+      <ul>
+        <% exploracion_fisica.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+  <%= form.hidden_field :hoja_paciente_id, value: @exploracion_fisica.hoja_paciente_id %>
+  </div>
+
+  <div class="container">
+  <div>  <table class="table" style="border-collapse: separate; border-spacing: 30px 15px;">
+  <thead  class="table-dark">
+  <tr >
+    <th>Patron de movimiento</th>
+    <th>Evaluación Patron Funcional</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr class="table-primary">
+    <td>  <%= form.hidden_field :patron_movimiento, value: "MANO-CABEZA"%> <%= form.label :patron_movimiento,"MANO-CABEZA", style: "display: block" %> </td>
+    <td>  <%= form.collection_radio_buttons :evaluacion_patron_funcional, [[1, 'No Funcional'], [2, 'Semifuncional'], [3, 'Funcional']], :first, :last do |b| %>
+      <span class="radio-spacing">&nbsp;&nbsp;&nbsp;</span>
+        <%= b.radio_button + b.label %>
+      </span>
+    <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td><%= form.label :patron_movimiento1,"MANO-PIE", style: "display: block" %>
+    <%= form.hidden_field :patron_movimiento1, value: "MANO-PIE" %></td>
+    <td><%= form.collection_radio_buttons :evaluacion_patron_funcional1, [[1, 'No Funcional'], [2, 'Semifuncional'], [3, 'Funcional']], :first, :last do |b| %>
+    <span class="radio-spacing">&nbsp;&nbsp;&nbsp;</span>
+      <%= b.radio_button + b.label %>
+    </span>
+  <% end %>
+  </td>
+  </tr>
+  <tr class="table-primary">
+    <td><%= form.label :patron_movimiento2,"MANO-BOCA", style: "display: block" %>
+    <%= form.hidden_field :patron_movimiento2, value: "MANO-BOCA" %></td>
+    <td><%= form.collection_radio_buttons :evaluacion_patron_funcional2, [[1, 'No Funcional'], [2, 'Semifuncional'], [3, 'Funcional']], :first, :last do |b| %>
+      <span class="radio-spacing">&nbsp;&nbsp;&nbsp;</span>
+        <%= b.radio_button + b.label %>
+      </span>
+    <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td><%= form.label :patron_movimiento3,"MANO-CADERA", style: "display: block" %>
+    <%= form.hidden_field :patron_movimiento3, value: "MANO-CADERA" %></td>
+    <td><%= form.collection_radio_buttons :evaluacion_patron_funcional3, [[1, 'No Funcional'], [2, 'Semifuncional'], [3, 'Funcional']], :first, :last do |b| %>
+      <span class="radio-spacing">&nbsp;&nbsp;&nbsp;</span>
+        <%= b.radio_button + b.label %>
+      </span>
+    <% end %>
+    </td>
+  </tr>
+  <tr class="table-primary">
+    <td><%= form.label :patron_movimiento4,"MANO-CINTURA", style: "display: block" %>
+    <%= form.hidden_field :patron_movimiento4, value: "MANO-CINTURA" %></td>
+    <td><%= form.collection_radio_buttons :evaluacion_patron_funcional4, [[1, 'No Funcional'], [2, 'Semifuncional'], [3, 'Funcional']], :first, :last do |b| %>
+      <span class="radio-spacing">&nbsp;&nbsp;&nbsp;</span>
+        <%= b.radio_button + b.label %>
+      </span>
+    <% end %>
+    </td>
+  </tr>
+  <tr>
+  <td><%= form.label :patron_movimiento5,"MANO-RODILLA", style: "display: block" %>
+  <%= form.hidden_field :patron_movimiento5, value: "MANO-RODILLA" %></td>
+    <td><%= form.collection_radio_buttons :evaluacion_patron_funcional5, [[1, 'No Funcional'], [2, 'Semifuncional'], [3, 'Funcional']], :first, :last do |b| %>
+      <span class="radio-spacing">&nbsp;&nbsp;&nbsp;</span>
+        <%= b.radio_button + b.label %>
+      </span>
+    <% end %>
+    </td>
+  </tr>
+  <tr class="table-primary">
+    <td><%= form.label :patron_movimiento6,"MANO-TOBILLO", style: "display: block" %>
+    <%= form.hidden_field :patron_movimiento6, value: "MANO-TOBILLO" %></td>
+    <td><%= form.collection_radio_buttons :evaluacion_patron_funcional6, [[1, 'No Funcional'], [2, 'Semifuncional'], [3, 'Funcional']], :first, :last do |b| %>
+      <span class="radio-spacing">&nbsp;&nbsp;&nbsp;</span>
+        <%= b.radio_button + b.label %>
+      </span>
+    <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td><%= form.label :patron_movimiento7,"MANO-OJOS", style: "display: block" %>
+    <%= form.hidden_field :patron_movimiento7, value: "MANO-OJOS" %></td>
+    <td><%= form.collection_radio_buttons :evaluacion_patron_funcional7, [[1, 'No Funcional'], [2, 'Semifuncional'], [3, 'Funcional']], :first, :last do |b| %>
+      <span class="radio-spacing">&nbsp;&nbsp;&nbsp;</span>
+        <%= b.radio_button + b.label %>
+      </span>
+    <% end %>
+    </td>
+  </tr>
+  <tr class="table-primary">
+    <td><%= form.label :patron_movimiento8,"MANO-NARIZ", style: "display: block" %>
+    <%= form.hidden_field :patron_movimiento8, value: "MANO-NARIZ" %></td>
+    <td><%= form.collection_radio_buttons :evaluacion_patron_funcional8, [[1, 'No Funcional'], [2, 'Semifuncional'], [3, 'Funcional']], :first, :last do |b| %>
+      <span class="radio-spacing">&nbsp;&nbsp;&nbsp;</span>
+        <%= b.radio_button + b.label %>
+      </span>
+    <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td><%= form.label :patron_movimiento9,"MANO-NUCA", style: "display: block" %>
+    <%= form.hidden_field :patron_movimiento9, value: "MANO-NUCA" %></td>
+    <td><%= form.collection_radio_buttons :evaluacion_patron_funcional9, [[1, 'No Funcional'], [2, 'Semifuncional'], [3, 'Funcional']], :first, :last do |b| %>
+      <span class="radio-spacing">&nbsp;&nbsp;&nbsp;</span>
+        <%= b.radio_button + b.label %>
+      </span>
+    <% end %>
+    </td>
+  </tr>
+  <tr class="table-primary">
+    <td><%= form.label :patron_movimiento10,"MANO-HOMBROS", style: "display: block" %>
+    <%= form.hidden_field :patron_movimiento10, value: "MANO-HOMBROS" %></td>
+    <td><%= form.collection_radio_buttons :evaluacion_patron_funcional10, [[1, 'No Funcional'], [2, 'Semifuncional'], [3, 'Funcional']], :first, :last do |b| %>
+      <span class="radio-spacing">&nbsp;&nbsp;&nbsp;</span>
+        <%= b.radio_button + b.label %>
+      </span>
+    <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td><%= form.label :patron_movimiento11,"ANTERIOR", style: "display: block" %>
+    <%= form.hidden_field :patron_movimiento11, value: "ANTERIOR" %></td>
+    <td><%= form.collection_radio_buttons :evaluacion_patron_funcional11, [[1, 'No Funcional'], [2, 'Semifuncional'], [3, 'Funcional']], :first, :last do |b| %>
+      <span class="radio-spacing">&nbsp;&nbsp;&nbsp;</span>
+        <%= b.radio_button + b.label %>
+      </span>
+    <% end %>
+    </td>
+  </tr>
+  <tr class="table-primary">
+    <td><%= form.label :patron_movimiento12,"SUPERIOR", style: "display: block" %>
+    <%= form.hidden_field :patron_movimiento12, value: "SUPERIOR" %></td>
+    <td><%= form.collection_radio_buttons :evaluacion_patron_funcional12, [[1, 'No Funcional'], [2, 'Semifuncional'], [3, 'Funcional']], :first, :last do |b| %>
+      <span class="radio-spacing">&nbsp;&nbsp;&nbsp;</span>
+        <%= b.radio_button + b.label %>
+      </span>
+    <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td><%= form.label :patron_movimiento13,"INFERIOR", style: "display: block" %>
+    <%= form.hidden_field :patron_movimiento13, value: "INFERIOR" %></td>
+    <td><%= form.collection_radio_buttons :evaluacion_patron_funcional13, [[1, 'No Funcional'], [2, 'Semifuncional'], [3, 'Funcional']], :first, :last do |b| %>
+      <span class="radio-spacing">&nbsp;&nbsp;&nbsp;</span>
+        <%= b.radio_button + b.label %>
+      </span>
+    <% end %>
+    </td>
+  </tr>
+  <tr class="table-primary">
+    <td><%= form.label :patron_movimiento14,"LATERAL", style: "display: block" %>
+    <%= form.hidden_field :patron_movimiento14, value: "LATERAL" %></td>
+    <td><%= form.collection_radio_buttons :evaluacion_patron_funcional14, [[1, 'No Funcional'], [2, 'Semifuncional'], [3, 'Funcional']], :first, :last do |b| %>
+      <span class="radio-spacing">&nbsp;&nbsp;&nbsp;</span>
+        <%= b.radio_button + b.label %>
+      </span>
+    <% end %>
+    </td>
+  </tr>
+  </tbody>
+
+  <!-- Agrega más filas según sea necesario -->
+</table>
+   
+  </div>
+  <br>
+  <div>
+
+    <%= form.submit "Agregar Exploración Fisica al paciente", class: "btn btn-primary"%>
+  </div>
+<% end %>
+</div>

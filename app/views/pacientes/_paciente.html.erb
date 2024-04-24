@@ -1,0 +1,145 @@
+<div id="<%= dom_id paciente %>">
+
+<div class="container">
+<br><br><br><br>
+<h2>
+<i class="fa-regular fa-user"></i>
+<strong>Nombre:</strong>
+<%= paciente.nombres+' '+ paciente.apellidos %>
+</h2>
+<br><br>
+  <p>
+    <i class="fa-solid fa-address-card"></i>
+    <strong>Numero identificacion:</strong>
+    <%= paciente.numero_identificacion %>
+  </p>
+
+
+  <p>
+    <i class="fa-solid fa-phone"></i>
+    <strong>Telefono:</strong>
+    <%= paciente.telefono %>
+  </p>
+
+  <p>
+    <i class="fa-solid fa-at"></i>
+    <strong>Correo electronico:</strong>
+    <%= paciente.correo_electronico %>
+  </p>
+
+   <p>
+
+    <strong>Edad:</strong>
+    <%= paciente.edad %> <strong>años</strong>
+  </p>
+
+  <p>
+    <i class="fa-solid fa-droplet"></i>
+    <strong>Tipo sangre:</strong>
+    <%= paciente.tipo_sangre.upcase %>
+  </p>
+
+  <p>
+    <i class="fa-solid fa-hospital"></i>
+    <strong>Eps:</strong>
+    <%= paciente.eps %>
+  </p>
+
+  <p>
+    <i class="fa-solid fa-user-tie"></i>
+    <strong>Ocupacion:</strong>
+    <%= paciente.ocupacion %>
+  </p>
+
+  <% if @hojas_paciente.present? %>
+  <div class="accordion accordion-flush" id="accordionFlushExample">
+    <% @hojas_paciente.each do |hoja_paciente| %>
+      <% if hoja_paciente.numero_identificacion_paciente == paciente.id  %>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= hoja_paciente.id %>" aria-expanded="false" aria-controls="collapse<%= hoja_paciente.id %>">
+              Hoja de Paciente <%= hoja_paciente.fecha %>
+            </button>
+          </h2>
+          <div id="collapse<%= hoja_paciente.id %>" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">
+              <strong>CIF:</strong> <%= hoja_paciente.cif %><br>
+              <strong>Objetivos terapéuticos:</strong> <%= hoja_paciente.objetivos_terapeuticos %><br>
+              <strong>Duración plan de trabajo en días:</strong> <%= hoja_paciente.duracion_plan_trabajo %><br>
+
+              <!-- Sección de Videos -->
+              <h3>Videos</h3>
+              <ul>
+                <% @videos.each do |video| %>
+                  <% if video.hoja_paciente_id == hoja_paciente.id  %>   
+                    <li>
+                      <iframe width="560" height="315" src="<%= video.nombre_video %>" frameborder="0" allowfullscreen></iframe>
+                    </li>
+                  <% end %>
+                <% end %>
+              </ul>
+
+              <!-- Sección de Exploraciones Físicas -->
+              <h3>Exploraciones Físicas</h3>
+              <ul>
+                <% hoja_paciente.exploracion_fisicas.each do |exploracion_fisica| %>
+                  <% if exploracion_fisica.hoja_paciente_id == hoja_paciente.id  %> 
+                  <table class="table" style="border-collapse: separate; border-spacing: 15px 5px;">
+                  <th>Patrón de Movimiento</th>
+                  <th>Evaluación del Patrón Funcional</th>
+                </tr>
+                
+                <td>
+              <%= exploracion_fisica.patron_movimiento %>
+              </td>
+              <td>
+              <% case exploracion_fisica.evaluacion_patron_funcional %>
+              <% when 1 %>
+              No Funcional
+              <% when 2 %>
+              Semifuncional
+              <% when 3 %>
+              Funcional
+              <% else %>
+              Otro caso
+              <% end %>
+              </td>
+                <% (1..14).each do |i| %>
+                  <tr>
+                 
+                </p>
+                    <td>
+                      <%= exploracion_fisica.public_send("patron_movimiento#{i}") %>
+                    </td>
+                    <td>
+                      <% case exploracion_fisica.public_send("evaluacion_patron_funcional#{i}") %>
+                        <% when 1 %>
+                          No Funcional
+                        <% when 2 %>
+                          Semifuncional
+                        <% when 3 %>
+                          Funcional
+                        <% else %>
+                          Otro caso
+                      <% end %>
+                    </td>
+              
+                  </tr>
+                <% end %>
+              </table>
+                  <% end %>  
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+<% else %>
+  <p>No hay hojas de paciente asociadas.</p>
+<% end %>
+
+
+  
+</div>

@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hoja_paciente: one
+  patron_movimiento: MyString
+  evaluacion_patron_funcional: 1
+
+two:
+  hoja_paciente: two
+  patron_movimiento: MyString
+  evaluacion_patron_funcional: 1

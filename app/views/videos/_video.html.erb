@@ -1,0 +1,9 @@
+<div id="<%= dom_id video %>">
+  <p>
+    <strong>Hoja paciente:</strong>
+    <%= video.hoja_paciente_id %>
+  </p>
+      <iframe width="560" height="315" src="<%= video.nombre_video %>" frameborder="0" allowfullscreen></iframe>
+  <p><%= link_to 'Volver a la lista de videos', videos_path %></p>
+
+</div>

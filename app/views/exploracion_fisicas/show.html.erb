@@ -1,0 +1,13 @@
+<div class="container">
+
+<p style="color: green"><%= notice %></p>
+
+<%= render @exploracion_fisica %>
+
+<div>
+  <%= link_to "Modificar exploracion fisica", edit_exploracion_fisica_path(@exploracion_fisica) %> |
+  <%= link_to "Regresar a lista de pacientes", pacientes_path %>
+
+  <%= button_to "Borrar exploracion fisica", @exploracion_fisica, method: :delete %>
+</div>
+</div>

@@ -1,0 +1,81 @@
+<div class="container">
+<%= form_with(model: paciente, class: "row g-3") do |form| %>
+  <% if paciente.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(paciente.errors.count, "error") %> prohibited this paciente from being saved:</h2>
+      <ul>
+        <% paciente.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <br>
+  <br>
+  <div class="col-md-6">
+    <i class="fa-solid fa-address-card"></i>
+    <%= form.label :numero_identificacion, class: "form-label" %>
+    <%= form.number_field :numero_identificacion, class: "form-control", placeholder: "Número de Identificación" %>
+    </div>
+
+  <div class="col-md-6">
+    <i class="fa-solid fa-file-signature"></i>
+    <%= form.label :nombres, class: "form-label" %>
+    <%= form.text_field :nombres, class: "form-control", placeholder: "Nombres" %>
+
+  </div>
+
+  <div class="col-md-6">
+    <i class="fa-solid fa-file-signature"></i>
+    <%= form.label :apellidos, class: "form-label" %>
+    <%= form.text_field :apellidos, class: "form-control", placeholder: "Apellidos" %>
+  </div>
+
+  <div class="col-md-6">
+    <i class="fa-solid fa-phone"></i> <%= form.label :telefono, class: "form-label" %>
+    <%= form.number_field :telefono, class: "form-control", placeholder: "Tel fijo o celular" %>
+  </div>
+
+  <div class="col-12">
+    <i class="fa-solid fa-at"></i>
+    <%= form.label :correo_electronico, class: "form-label" %>
+    <%= form.text_field :correo_electronico, class: "form-control", placeholder: "correo electronico" %>
+  </div>
+
+  <div class="col-md-6">
+    <%= form.label :contraseña, class: "form-label" %>
+    <%= form.password_field :contraseña, class: "form-control" %>
+  </div>
+
+  <div class="col-md-6">
+    <%= form.label :edad, class: "form-label" %>
+    <%= form.number_field :edad, class: "form-control", placeholder: "Digita tu edad en años" %>
+  </div>
+
+  <div class="col-md-6">
+    <i class="fa-solid fa-droplet"></i>
+    <%= form.label :tipo_sangre, class: "form-label" %>
+    <%= form.text_field :tipo_sangre, class: "form-control", placeholder: "EJ: A+" %>
+  </div>
+
+  <div class="col-md-6">
+    <i class="fa-solid fa-hospital"></i>
+    <%= form.label :eps, class: "form-label" %>
+    <%= form.text_field :eps, class: "form-control" , placeholder: "EJ: Salud Total"%>
+  </div>
+
+  <div class="col-md-6">
+    <i class="fa-solid fa-user-tie"></i>
+    <%= form.label :ocupacion, class: "form-label" %>
+    <%= form.text_field :ocupacion, class: "form-control" %>
+  </div>
+
+  <div class="col-12">
+  <%= form.submit "Crear Paciente", class: "btn btn-primary" %>
+  </div>
+
+<% end %>
+<div>
+  <%= link_to "Regresar a lista de pacientes", pacientes_path %>
+</div>
+</div>

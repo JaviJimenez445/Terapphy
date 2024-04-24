@@ -1,0 +1,45 @@
+<div id="<%= dom_id exploracion_fisica %>">
+<table class="table" style="border-collapse: separate; border-spacing: 15px 5px;">
+    <th>Patrón de Movimiento</th>
+    <th>Evaluación del Patrón Funcional</th>
+  </tr>
+  
+  <td>
+<%= exploracion_fisica.patron_movimiento %>
+</td>
+<td>
+<% case exploracion_fisica.evaluacion_patron_funcional %>
+<% when 1 %>
+No Funcional
+<% when 2 %>
+Semifuncional
+<% when 3 %>
+Funcional
+<% else %>
+Otro caso
+<% end %>
+</td>
+  <% (1..14).each do |i| %>
+    <tr>
+   
+  </p>
+      <td>
+        <%= exploracion_fisica.public_send("patron_movimiento#{i}") %>
+      </td>
+      <td>
+        <% case exploracion_fisica.public_send("evaluacion_patron_funcional#{i}") %>
+          <% when 1 %>
+            No Funcional
+          <% when 2 %>
+            Semifuncional
+          <% when 3 %>
+            Funcional
+          <% else %>
+            Otro caso
+        <% end %>
+      </td>
+
+    </tr>
+  <% end %>
+</table>
+</div>

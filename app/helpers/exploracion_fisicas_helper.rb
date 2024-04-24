@@ -1,0 +1,2 @@
+module ExploracionFisicasHelper
+end
